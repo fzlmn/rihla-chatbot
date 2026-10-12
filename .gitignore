@@ -1,0 +1,11 @@
+# Secrets
+.env
+
+# Python
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# Node (phase 2)
+node_modules/
+dist/
