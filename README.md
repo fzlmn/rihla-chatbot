@@ -1,16 +1,22 @@
-# Rihla — Chatbot guide touristique du Maroc
+# Rihla — Morocco travel guide chatbot
 
-Rihla (« voyage » en arabe) est un chatbot qui aide les voyageurs à préparer et vivre leur séjour au Maroc : villes à visiter, transports, coutumes, budget.
+Rihla ("journey" in Arabic) is a chatbot that helps people plan and enjoy a trip in Morocco: which cities to visit, how to get around, local customs and etiquette, and a rough budget.
 
-Projet réalisé dans le cadre du TP *Développement d'un chatbot spécialisé* — module Applications avancées en IA, Mundiapolis.
+**Target audience:** English-speaking visitors preparing their first trip to Morocco, and Moroccans who want to explore other regions of the country.
 
-## Structure
+Built for the lab assignment *Développement d'un chatbot spécialisé* (Advanced AI Applications module, Mundiapolis).
+
+**Author:** Fatima Zahra Ait Lamine
+
+**Author:** Fatima Zahra
+
+## Project structure
 
 ```
 rihla/
-├── notebook/          # Phase 1 : prototype dans un notebook
-├── .env.example       # modèle de configuration (sans secret)
-├── requirements.txt   # dépendances Python
+├── notebook/          # Phase 1: prototype in a Jupyter notebook
+├── .env.example       # configuration template (no secrets)
+├── requirements.txt   # Python dependencies
 └── README.md
 ```
 
@@ -28,8 +34,8 @@ pip install -r requirements.txt
 Copy-Item .env.example .env
 ```
 
-Puis ouvrir `.env` et coller la clé Groq (https://console.groq.com/keys) après `LLM_API_KEY=`.
+Then open `.env` and paste your Groq API key (https://console.groq.com/keys) after `LLM_API_KEY=`.
 
-## Lancement
+## Running
 
-*(à compléter)*
+*(coming soon)*
