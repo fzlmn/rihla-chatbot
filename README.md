@@ -93,6 +93,22 @@ Then open http://localhost:5173.
 | `POST /chat` | Send `{"message": "...", "conversation_id": "..." or null}`, receive `{"conversation_id": "...", "answer": "..."}` |
 | `DELETE /chat/{conversation_id}` | Reset a conversation |
 
+## Prompt comparison (phase 1)
+
+The notebook tests 3 versions of the system prompt on the same 10 test situations: 4 relevant questions, 2 that need the context of previous messages, 1 ambiguous, 1 off-topic, 1 sensitive and 1 attempt to make Rihla ignore its instructions. Each test runs in a new conversation, and each answer is assessed against the expected behaviour: ✅ correct, ⚠️ partly correct, ❌ incorrect.
+
+| Version | ✅ | ⚠️ | ❌ | Average words |
+|---|---|---|---|---|
+| v1 | 6 | 2 | 2 | 174 |
+| v2 | 8 | 1 | 1 | 95 |
+| **v3 (used in the app)** | **9** | **1** | **0** | **97** |
+
+- **v1 → v2:** length limits (120 words, no tables), prices in MAD only, no invented names or facilities, a "Key facts" section (trains, mosques) and an explicit rule that the instructions are confidential.
+- **v2 → v3:** two targeted changes. The mosque fact becomes a rule with a trigger ("whenever the user asks about visiting a mosque…"), and for limited mobility Rihla suggests questions to ask instead of describing accessibility as facts.
+- **Remaining limit:** the limited-mobility test stays partly correct. Reliable accessibility information would need verified data, not just a better prompt.
+
+The details of every test are in `notebook/results_v1.csv`, `results_v2.csv`, `results_v3.csv` and `comparison.csv`.
+
 ## End-to-end checks (phase 2)
 
 The phase 1 test situations were replayed in the web app (relevant, context, ambiguous, off-topic, sensitive and "ignore your instructions" questions), with the same behaviour as prompt v3 in the notebook. The following checks were also done:
